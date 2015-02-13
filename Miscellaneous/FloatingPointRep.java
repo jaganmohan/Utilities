@@ -36,7 +36,12 @@ public class FloatingPointRep {
 		if(decimal < 0){
 			binaryRep[0] = '1';
 		}
-		Integer.t
+                int dec = (int)decimal;
+                String predec = Integer.toBinaryString(dec);
+		char preDecimal[] = predec.toCharArray();
+                int exponent  = predec.length()+(2^(expLength-1)-1)-1;
+                char exp[] = Integer.toBinaryString(exponent).toCharArray();
+                System.arraycopy(exp, 0, binaryRep, 1, exp.length);
 		
 	}
 
